@@ -11,7 +11,7 @@
 			</div>
 			<div class="col-md-3 col-sm-3 col-3 mx-auto">
 	            <div class="input-group">
-	            	<form action="{{ route('restore.search') }}" method="get">
+	            	<form action="{{ route('restore.search',['locale' => $locale]) }}" method="get">
 		                <input class="typeahead form-control border-end-0 border rounded-pill" type="search" placeholder="search in title..." name="search" autocomplete="off">
 	                    <button class="btn btn-outline-secondary bg-white border-bottom-0 border rounded-pill ms-n5" type="submit" style="display: inline-block;margin-top: -64.5px;margin-left: 208px;" >
 		                    <i class="fa fa-search"></i>
@@ -38,7 +38,7 @@
 							<th width="15%">Image</th>
 							<th width="12%">Created at</th>
 							<th width="12$">Deleted at</th>
-							<th width="11%"><a href="{{ route('restore.all') }}" class="btn btn-warning">
+							<th width="11%"><a href="{{ route('restore.all', ['locale' => app()->getLocale()]) }}" class="btn btn-warning">
 					Restore All
 				</a></th>
 						</tr>
@@ -54,7 +54,7 @@
 							<td>{{$post->created_at}}</td>
 							<td>{{$post->deleted_at}}</td>
 							<td >
-								<a href="{{ route('restore.one', $post->id) }}" class="btn btn-success">Restore</a>
+								<a href="{{ route('restore.one',['locale' => app()->getLocale(), 'id' => $post->id ] )}}" class="btn btn-success">Restore</a>
                             </form>
 							</td>
 						</tr>

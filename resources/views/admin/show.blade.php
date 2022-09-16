@@ -1,5 +1,5 @@
 @extends('layouts.adminLayout')
-@section('title') Post {{$post->title}}@endsection
+@section('title'){{$post->title}}@endsection
 @section('content')
 <div class="content-header">
 	<div class="container-fluid">

@@ -38,7 +38,7 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="{{ route('editSettings') }}"  class="nav-link">
+                    <a href="{{ route('editSettings', ['locale' => $locale]) }}"  class="nav-link">
                       <i class="nav-icon fa-solid fa-gear"></i>
                       <p>
                         Setings
@@ -69,65 +69,49 @@
                   </p>
                 </a>
                 <ul class="nav nav-treeview">
+
                   <li class="nav-item">
-                    <a href="{{ route('posts.index') }}" class="nav-link ">
-                      <i class="nav-icon fas fa-list-ul"></i>
-                      <p>All Posts </p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="{{ route('posts.create') }}" class="nav-link ">
+                    <a href="{{ route('createpost', ['locale' =>$locale]) }}" class="nav-link ">
                       <i class="nav-icon fas fa-cart-plus"></i>
                       <p>Add Post </p>
                     </a>
                   </li>
 
                   <li class="nav-item">
-                    <a href="{{route('restore')}}" class="nav-link ">
+                    <a href="{{route('restore', ['locale' =>$locale])}}" class="nav-link ">
                       <i class="nav-icon fas fa-trash-restore"></i>
                       <p>Restore</p>
                     </a>
                   </li>
                 </ul>
               </li>
-              <li class="nav-item  menu-open">
-                <a href="#" class="nav-link ">
-                  <i class="nav-icon fas fa-newspaper"></i>
-                  <p>
-                    Show Posts
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="{{route('enposts')}}" class="nav-link ">
-                      <img src="{{ asset('images/eng.png') }}" alt=" Agency of IFAS Logo" class="nav-icon brand-image img-circle elevation-3" style="opacity: .8">
-                      <p>English Posts</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="{{route('ruposts')}}" class="nav-link ">
-                      <img src="{{ asset('images/rus.jpg') }}" alt=" Agency of IFAS Logo" class="nav-icon brand-image img-circle elevation-3" style="opacity: .8">
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                      @switch($locale)
+                          @case('en')
+                              English
+                              @break
+                          @case('ru')
+                              Russian
+                              @break
+                          @case('uz')
+                              Uzbek
+                              @break
+                          @case('qqr')
+                              Karakalpak
+                              @break
 
-                      <p>Russian Posts</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="{{route('uzposts')}}" class="nav-link ">
-                      <img src="{{ asset('images/uzb.png') }}" alt=" Agency of IFAS Logo" class="nav-icon brand-image img-circle elevation-3" style="opacity: .8">
+                      @endswitch
 
-                      <p>Uzbek Posts</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="{{route('qqrposts')}}" class="nav-link ">
-                      <img src="{{ asset('images/qqr.jpg') }}" alt=" Agency of IFAS Logo" class="nav-icon brand-image img-circle elevation-3" style="opacity: .8">
-
-                      <p>Karakalpak Posts</p>
-                    </a>
-                  </li>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><a class="dropdown-item" href="{{ url('en/admin/post') }}">English</a></li>
+                  <li><a class="dropdown-item" href="{{ url('ru/admin/post') }}">Russian</a></li>
+                  <li><a class="dropdown-item" href="{{ url('uz/admin/post') }}">Uzbek</a></li>
+                  <li><a class="dropdown-item" href="{{ url('qqr/admin/post') }}">Karakalpak</a></li>
                 </ul>
-              </li>
+              </div>
+
             </ul>
           </nav>
         </div>

@@ -4,10 +4,7 @@
 	<div class="container">
         <div class="row mt-3">
             <div class="col-md-6">
-                <h2> Posts English </h2>
-            </div>
-            <div class="col-md-3">
-                <a href="{{ route('posts.create') }}" class="btn btn-success">Add Post</a>
+                <h2> {{$post->title}} </h2>
             </div>
             @include('user.inc.lang_nav')
         </div>
@@ -25,8 +22,7 @@
 					<tr>
 						<th width="20%">Post Category</th>
 						<td>
-								{{$post->category->name}}
-
+							{{$post->category->name}}
 						</td>
 					</tr>
 					<tr>
@@ -35,7 +31,7 @@
 					</tr>
 					<tr>
 						<th width="20%">Post Text</th>
-						<td><p>{!!$post->text!!}</p></td>
+						<td>{!!$post->text!!}</td>
 					</tr>
 					<tr>
 						<th width="10%">Post Created at</th>

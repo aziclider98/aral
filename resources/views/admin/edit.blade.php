@@ -19,7 +19,7 @@
 		<div class="row">
 			<div class="col-md-12 col-lg-12 col-12">
 				<div class="card card-primary">
-					<form action="{{ route('posts.update', $en_post->id) }}" method="POST" enctype="multipart/form-data">
+					<form action="{{ route('updatepost', ['locale' =>$locale, 'id' => $en_post->id]) }}" method="POST" enctype="multipart/form-data">
 						@csrf
 						@method('PUT')
 						<div class="card-body">

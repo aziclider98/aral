@@ -10,9 +10,8 @@
 			</div>
 			<div class="col-md-3 col-sm-3 col-3 mx-auto">
 	            <div class="input-group">
-	            	<form action="{{ route('searchcategory') }}" method="get">
+	            	<form action="{{ route('searchcategory',['locale' => $locale]) }}" method="get">
 		                <input class="form-control border-end-0 border rounded-pill" type="search" placeholder="search in title" name="search" autocomplete="off" value="{{old('search')}}">
-		                <input type="hidden" name="lang" value="{{$cat}}">
 		                <input type="hidden" name="category_one" value="{{$category_one->id}}">
 	                    <button class="btn btn-outline-secondary bg-white border-bottom-0 border rounded-pill ms-n5" type="submit" style="display: inline-block;margin-top: -64.5px;margin-left: 208px;" >
 		                    <i class="fa fa-search"></i>
@@ -55,13 +54,13 @@
 									<td><img src="{{ asset('storage/images/'.$post->image) }}" width="100%" height="120px" alt="{{$post->image}}"></td>
 									<td>{{$post->created_at}}</td>
 									<td>
-										<a id="show" class="btn btn-warning" href="{{ route('showenposts', $post->id) }}">
+										<a id="show" class="btn btn-warning" href="{{ route('indexadminshow', ['locale' => app()->getLocale(), 'id'=>$post->id]) }}">
 											<i class="nav-icon fa-solid  fa-eye"></i><span id="showtext">Show Post</span>
 										</a>
-										<a id="edit" class="btn btn-info" href="{{ route('posts.edit', $post->id) }}">
+										<a id="edit" class="btn btn-info" href="{{ route('editpost', ['locale' => app()->getLocale(), 'id'=>$post->id]) }}">
 											<i class="nav-icon fa-solid fa-pen-to-square"></i><span id="edittext">Edit Text</span>
 										</a>
-										<form action="{{ route('posts.destroy',$post->id) }}" method="POST" style="display:inline-block;">
+										<form action="{{ route('destroy', ['locale' => app()->getLocale(), 'id'=>$post->id]) }}" method="POST" style="display:inline-block;">
 											@csrf
 											@method('DELETE')
 											<button id="delete" class="btn btn-danger delete-confirm" type="submit"><i class="nav-icon fa-solid fa-trash"></i> <span id="deletetext">Delete Text</span></button>

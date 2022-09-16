@@ -9,12 +9,12 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Crypt;
 class SettingsController extends Controller
 {
-    public function edit()
+    public function edit($locale)
     {
         $admin = User::findOrFail(1);
-        return view('admin.index.settings', compact('admin'));
+        return view('admin.index.settings', compact('admin', 'locale'));
     }
-    public function update(Request $request)
+    public function update(Request $request, $locale)
     {
         # Validation
         $request->validate([
@@ -36,9 +36,9 @@ class SettingsController extends Controller
             'password' => Hash::make($request->new_password)
         ]);
         alert()->success('Success','Password successfully changed')->persistent('Close')->autoclose(5500);
-        return back();
+        return back(compact('locale'));
     }
-    public function nameEmailUpdate(Request $request, $id)
+    public function nameEmailUpdate(Request $request, $locale, $id)
     {
         $admin = User::findOrFail($id);
         $user = User::findOrFail($id);
@@ -52,6 +52,6 @@ class SettingsController extends Controller
         $user->password = $admin['password'];
         $user->save();
         alert()->success('Success','Info successfully updated')->persistent('Close')->autoclose(5500);
-        return redirect()->route('editSettings');
+        return redirect()->route('editSettings', compact('locale'));
     }
 }

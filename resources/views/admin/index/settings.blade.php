@@ -22,7 +22,7 @@
             <div class="col-md-10">
                 <h3> <strong> Personal information</strong> </h3>
                 <div class="about-admin">
-                    <form action="{{ route('infoupdate', $admin->id) }}" method="POST">
+                    <form action="{{ route('infoupdate',['locale' =>$locale, 'id' => $admin->id]) }}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class="form-group">
@@ -48,7 +48,7 @@
             </div>
 			<div class="col-md-10 col-lg-10 col-10 mt-3">
                 <h3> <strong>Change Password </strong></h3>
-				 <form action="{{ route('updateSettings') }}" method="POST">
+				 <form action="{{ route('updateSettings', $locale) }}" method="POST">
                         @csrf
                         <div class="card-body">
                             @if (session('status'))
