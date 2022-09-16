@@ -5,12 +5,11 @@
 	<div class="container-fluid">
 		<div class="row mb-2">
 			@include('admin.inc.push-menu')
-			<div class="col-md-9 col-sm-9 " >
+			<div class="col-md-7 col-sm-7 " >
 				<h1>Post Update</h1>
 			</div>
-			<div class="col-md-2 col-sm-2 ">
-				<a href="{{ url()->previous()}} " class="btn btn-danger">Go Back</a>
-			</div>
+			@include('admin.inc.goback')
+			@include('admin.inc.lang_nav')
 		</div>
 	</div>
 </div>

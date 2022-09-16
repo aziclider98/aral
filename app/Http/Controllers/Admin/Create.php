@@ -19,8 +19,26 @@ class Create extends Controller
 {
     public function create($locale)
     {
-        $en_categories = EnCategory::all();
-        return view('admin.create', compact('en_categories', 'locale'));
+        $categories = '';
+        switch ($locale) {
+            case 'en':
+                $categories = EnCategory::all();
+                break;
+            case 'ru':
+                $categories = RuCategory::all();
+                break;
+            case 'uz':
+                $categories = UzCategory::all();
+                break;
+            case 'qqr':
+                $categories = QqrCategory::all();
+                break;
+
+            default:
+                $categories = EnCategory::all();
+                break;
+        }
+        return view('admin.create', compact('categories', 'locale'));
     }
     public function store(PostRequest $request, $locale)
     {

@@ -12,9 +12,17 @@ return [
     | these language lines according to your application's requirements.
     |
     */
+    'language' => 'ru',
 
     'failed' => 'These credentials do not match our records.',
     'password' => 'The provided password is incorrect.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
     'news' => 'Новости',
+    'brandname' => 'Агентство МФСА',
+    'settings' => 'Настройки',
+    'logout' => 'Выйти',
+    'post' => 'Пост',
+    'addpost' => 'Добавить Пост',
+    'restore' => 'Восстановить',
+
 ];

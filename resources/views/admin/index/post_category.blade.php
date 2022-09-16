@@ -5,7 +5,7 @@
 	<div class="container-fluid">
 		<div class="row mb-2">
 			@include('admin.inc.push-menu')
-			<div class="col-md-6 col-sm-6 col-6" >
+			<div class="col-md-4 col-sm-4 col-4" >
 				<h1>{{$category_one->name}}</h1>
 			</div>
 			<div class="col-md-3 col-sm-3 col-3 mx-auto">
@@ -19,9 +19,8 @@
 	            	</form>
 	            </div>
         	</div>
-			<div class="col-md-2 col-sm-2 col-2">
-				<a href="{{ url()->previous()}} " class="btn btn-danger">Go Back</a>
-			</div>
+			@include('admin.inc.goback')
+			@include('admin.inc.lang_nav')
 
 		</div>
 	</div>

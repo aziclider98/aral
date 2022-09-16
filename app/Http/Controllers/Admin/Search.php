@@ -72,7 +72,7 @@ class Search extends Controller
                 // code...
                 break;
         }
-        return view('admin.index.post', compact( 'categories' ,'posts', 'locale'));
+        return redirect()->back();
 
     }
     public function searchCategory(Request $request, $locale)

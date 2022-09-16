@@ -7,12 +7,11 @@
 			<div class="col-sm-1 col-md-1">
 				@include('admin.inc.push-menu')
 			</div>
-			<div class="col-md-9 col-sm-9 col-4">
+			<div class="col-md-7 col-sm-7 col-7">
 				<h1 >Settings</h1>
 			</div>
-            <div class="col-md-2 col-sm-2 col-2">
-                <a href="{{ url()->previous()}} " class="btn btn-danger">Go Back</a>
-            </div>
+            @include('admin.inc.goback')
+            @include('admin.inc.lang_nav')
 		</div>
 	</div>
 </div>
@@ -43,7 +42,6 @@
                             Save Info
                         </button>
                     </form>
-
                 </div>
             </div>
 			<div class="col-md-10 col-lg-10 col-10 mt-3">

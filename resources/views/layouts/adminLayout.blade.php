@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{$locale}}">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> Agency of IFAS @yield('title')</title>
+    <title> @lang('auth.brandname') @yield('title')</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css')}} ">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
@@ -23,7 +23,7 @@
       <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <a href="" class="brand-link rounded" style="text-decoration: none;">
           <img src="{{ asset('images/logo.png') }}" alt=" Agency of IFAS Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-          <span class="brand-text font-weight-light">Agency of IFAS</span>
+          <span class="brand-text font-weight-light">@lang('auth.brandname')</span>
         </a>
         <div class="sidebar">
           <nav class="mt-2">
@@ -41,7 +41,7 @@
                     <a href="{{ route('editSettings', ['locale' => $locale]) }}"  class="nav-link">
                       <i class="nav-icon fa-solid fa-gear"></i>
                       <p>
-                        Setings
+                        @lang('auth.settings')
                       </p>
                     </a>
                   </li>
@@ -50,7 +50,7 @@
                     <a class="nav-link logout-confirm" href="{{ route('logout') }}">
                         <i class="nav-icon fa-solid fa-right-from-bracket"></i>
                         <p>
-                          {{ __('Logout') }}
+                          @lang('auth.logout')
                         </p>
                     </a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -64,7 +64,7 @@
                 <a href="#" class="nav-link ">
                   <i class="nav-icon fa-sharp fa-solid fa-list"></i>
                   <p>
-                    Post
+                    @lang('auth.post')
                     <i class="right fas fa-angle-left"></i>
                   </p>
                 </a>
@@ -73,44 +73,19 @@
                   <li class="nav-item">
                     <a href="{{ route('createpost', ['locale' =>$locale]) }}" class="nav-link ">
                       <i class="nav-icon fas fa-cart-plus"></i>
-                      <p>Add Post </p>
+                      <p>@lang('auth.addpost')</p>
                     </a>
                   </li>
 
                   <li class="nav-item">
                     <a href="{{route('restore', ['locale' =>$locale])}}" class="nav-link ">
                       <i class="nav-icon fas fa-trash-restore"></i>
-                      <p>Restore</p>
+                      <p>@lang('auth.restore')</p>
                     </a>
                   </li>
                 </ul>
               </li>
-              <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                      @switch($locale)
-                          @case('en')
-                              English
-                              @break
-                          @case('ru')
-                              Russian
-                              @break
-                          @case('uz')
-                              Uzbek
-                              @break
-                          @case('qqr')
-                              Karakalpak
-                              @break
 
-                      @endswitch
-
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item" href="{{ url('en/admin/post') }}">English</a></li>
-                  <li><a class="dropdown-item" href="{{ url('ru/admin/post') }}">Russian</a></li>
-                  <li><a class="dropdown-item" href="{{ url('uz/admin/post') }}">Uzbek</a></li>
-                  <li><a class="dropdown-item" href="{{ url('qqr/admin/post') }}">Karakalpak</a></li>
-                </ul>
-              </div>
 
             </ul>
           </nav>

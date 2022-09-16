@@ -12,9 +12,18 @@ return [
     | these language lines according to your application's requirements.
     |
     */
+    'language' => 'qqr',
 
     'failed' => 'These credentials do not match our records.',
     'password' => 'The provided password is incorrect.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
     'news' => "Jan'aliqlar",
+    'brandname' => 'AQXAF Agentligi',
+    'settings' => 'Sazlamalar',
+    'logout' => 'Shıǵıw ',
+    'post' => 'Post',
+    'addpost' => 'Post Qosıw ',
+    'restore' => 'Qayta Tiklew',
+
+
 ];

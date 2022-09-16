@@ -7,13 +7,11 @@
 			<div class="col-sm-1 col-md-1">
 				@include('admin.inc.push-menu')
 			</div>
-			<div class="col-md-9 col-sm-9 ">
+			<div class="col-md-7 col-sm-7 ">
 				<h1 >Post Create</h1>
 			</div>
-			<div class="col-md-2 col-sm-2 ">
-				<a href="{{ url()->previous()}} " class="btn btn-danger">Go Back</a>
-			</div>
-
+			@include('admin.inc.goback')
+			@include('admin.inc.lang_nav')
 		</div>
 	</div>
 </div>
@@ -116,8 +114,8 @@
 								</div>
 								<div class="category-body">
 									<select name="category_id" class="form-select" aria-label="Default select example">
-										@foreach ($en_categories as $en_category)
-										  <option value="{{$en_category->id}}">{{$en_category->name}}</option>
+										@foreach ($categories as $category)
+										  <option value="{{$category->id}}">{{$category->name}}</option>
 										@endforeach
 									</select>
 								</div>
