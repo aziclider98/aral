@@ -33,25 +33,8 @@ class PostRequest extends FormRequest
             'qqr_title' => 'required|max:255',
             'qqr_text' => 'required|max:10000',
             'category_id' => 'required',
-            'post_image' => 'image|mimes:jpeg,jpg,png|nullable|max:5000'
+            'post_image' => 'image|mimes:jpeg,jpg,png|max:5000'
         ];
-    }
-    public function messages()
-    {
-        return [
-
-            'en_title.required' =>'The English Post title field is required.',
-            'en_text.required' =>'The English Post text field is required.',
-            'ru_title.required' =>'The Russian Post title field is required.',
-            'ru_text.required' =>'The Russian Post text field is required.',
-            'uz_title.required' =>'The Uzbek Post title field is required.',
-            'uz_text.required' =>'The Uzbek Post text field is required.',
-            'qqr_title.required' =>'The Karakalpak Post title field is required.',
-            'qqr_text.required' =>'The Karakalpak Post text field is required.',
-
-        ];
-
-
     }
 }
 

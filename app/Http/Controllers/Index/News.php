@@ -41,7 +41,7 @@ class News extends Controller
                 return abort(404);
                 break;
         }
-        return view('user.news', compact('posts', 'categories'));
+        return view('user.news', compact('posts', 'categories', 'locale'));
     }
     public function indexcategory($locale, $id)
     {
@@ -73,7 +73,7 @@ class News extends Controller
                 return abort(404);
                 break;
         }
-        return view('user.news_category', compact('posts', 'categories', 'category_one'));
+        return view('user.news_category', compact('posts', 'categories', 'category_one', 'locale'));
     }
     public function indexshow($locale, $id)
     {
@@ -101,6 +101,6 @@ class News extends Controller
                 return abort(404);
                 break;
         }
-        return view('user.news_show', compact('post', 'categories'));
+        return view('user.news_show', compact('post', 'categories', 'locale'));
     }
 }

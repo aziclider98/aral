@@ -5,10 +5,9 @@
 	<div class="container-fluid">
 		<div class="row mb-2 ">
 			@include('admin.inc.push-menu')
-			<div class="col-sm-7 col-md-7 ">
+			<div class="col-sm-8 col-md-8 ">
 				<h1>{{$post->title}}</h1>
 			</div>
-			@include('admin.inc.goback')
 			@include('admin.inc.lang_nav')
 		</div>
 	</div>

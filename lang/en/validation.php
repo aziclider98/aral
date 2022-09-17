@@ -168,6 +168,15 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'en_title' => 'English News title',
+        'ru_title' => 'Russian News title',
+        'uz_title' => 'Uzbek News title',
+        'qqr_title' => 'Karakalpak News title',
+        'en_text' => 'English News text',
+        'ru_text' => 'Russian News text',
+        'uz_text' => 'Uzbek News text',
+        'qqr_text' => 'Karakalpak News text',
+    ],
 
 ];

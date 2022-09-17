@@ -46,8 +46,23 @@ class Restore extends Controller
         RuPost::withTrashed()->findOrFail($id)->restore();
         UzPost::withTrashed()->findOrFail($id)->restore();
         QqrPost::withTrashed()->findOrFail($id)->restore();
-        alert()->success('Success','Post successfully restored')->persistent('Close')->autoclose(5500);
-        return back(compact('locale'));
+        $messagealert = '';
+        switch ($locale) {
+            case 'en':
+                $messagealert = 'News successfully restored';
+                break;
+            case 'ru':
+                $messagealert = 'Новости успешно восстановлены';
+                break;
+            case 'uz':
+                $messagealert = 'Yangilik muvaffaqiyatli tiklandi';
+                break;
+            case 'qqr':
+                $messagealert = 'Jańalıq tabıslı tiklendi';
+                break;
+        }
+        alert()->success('Success',$messagealert)->persistent('Close')->autoclose(5500);
+        return back();
     }
     public function restoreAll($locale)
     {
@@ -55,7 +70,22 @@ class Restore extends Controller
         RuPost::onlyTrashed()->restore();
         UzPost::onlyTrashed()->restore();
         QqrPost::onlyTrashed()->restore();
-        alert()->success('Success','All Post successfully restored')->persistent('Close')->autoclose(5500);
-        return back(compact('locale'));
+        $messagealert = '';
+        switch ($locale) {
+            case 'en':
+                $messagealert = 'All News successfully restored';
+                break;
+            case 'ru':
+                $messagealert = 'Все новости успешно восстановлены';
+                break;
+            case 'uz':
+                $messagealert = 'Barcha yangiliklar muvaffaqiyatli tiklandi';
+                break;
+            case 'qqr':
+                $messagealert = 'Barlıq jańalıqlar tabıslı tiklendi';
+                break;
+        }
+        alert()->success('Success',$messagealert)->persistent('Close')->autoclose(5500);
+        return back();
     }
 }

@@ -1,5 +1,5 @@
 @extends('layouts.userLayout')
-@section('title') News @endsection
+@section('title') @lang('auth.news') @endsection
 @section('content')
 	<div class="container">
         <div class="row mt-3">

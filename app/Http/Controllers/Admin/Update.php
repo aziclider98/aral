@@ -31,12 +31,13 @@ class Update extends Controller
 
     public function update(PostRequest $request, $locale, $id)
     {
+        $data = $request->validated();
+
         $en_post = EnPost::findOrFail($id);
         $ru_post = RuPost::findOrFail($id);
         $uz_post = UzPost::findOrFail($id);
         $qqr_post = QqrPost::findOrFail($id);
 
-        $data = $request->validated();
 
         if ($request->hasFile('post_image')) {
             $fileNameWithExt = $data['post_image']->getClientOriginalName();
@@ -76,7 +77,22 @@ class Update extends Controller
         $ru_post->save();
         $uz_post->save();
         $qqr_post->save();
-        alert()->success('Success','Post successfully updated')->persistent('Close')->autoclose(5500);
-        return redirect()->back(compact('locale'));
+        $messagealert = '';
+        switch ($locale) {
+            case 'en':
+                $messagealert = 'News successfully updated';
+                break;
+            case 'ru':
+                $messagealert = 'Новости успешно обновлены';
+                break;
+            case 'uz':
+                $messagealert = 'Yangilik muvaffaqiyatli yangilandi';
+                break;
+            case 'qqr':
+                $messagealert = 'Jańalıq tabıslı jańalandi';
+                break;
+        }
+        alert()->success('Success',$messagealert)->persistent('Close')->autoclose(5500);
+        return redirect()->route('adminnews', compact('locale'));
     }
 }

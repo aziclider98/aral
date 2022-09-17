@@ -87,7 +87,22 @@ class Create extends Controller
         $ru_post->save();
         $uz_post->save();
         $qqr_post->save();
-        alert()->success('Success','Post successfully created')->persistent('Close')->autoclose(5500);
+        $messagealert = '';
+        switch ($locale) {
+            case 'en':
+                $messagealert = 'News successfully created';
+                break;
+            case 'ru':
+                $messagealert = 'Новости успешно созданы';
+                break;
+            case 'uz':
+                $messagealert = 'Yangilik muvaffaqiyatli yaratildi';
+                break;
+            case 'qqr':
+                $messagealert = 'Jańalıq tabıslı jaratıldı ';
+                break;
+        }
+        alert()->success('Success',$messagealert)->persistent('Close')->autoclose(5500);
         return redirect()->route('news', 'locale');
     }
 }

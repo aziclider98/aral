@@ -69,7 +69,12 @@
                   </p>
                 </a>
                 <ul class="nav nav-treeview">
-
+                  <li class="nav-item">
+                    <a href="{{ route('adminnews', ['locale' => $locale]) }}" class="nav-link ">
+                      <i class="nav-icon fa-solid fa-list-ul"></i>
+                      <p>@lang('auth.allposts')</p>
+                    </a>
+                  </li>
                   <li class="nav-item">
                     <a href="{{ route('createpost', ['locale' =>$locale]) }}" class="nav-link ">
                       <i class="nav-icon fas fa-cart-plus"></i>
@@ -119,10 +124,10 @@
               ['style', ['style']],
               ['font', ['bold','italic', 'underline', 'clear']],
               ['fontname', ['fontname']],
-              ['insert', ['link']],
               ['color', ['color']],
               ['para', ['ul', 'ol', 'paragraph']],
               ['table', ['table']],
+              ['insert', ['link']],
               ['view', ['fullscreen', 'help']],
             ],
         });
@@ -155,8 +160,8 @@
         var form =  $(this).closest("form");
         event.preventDefault();
         swal({
-            title: 'Are you sure?',
-            text: 'This post permanantly deleted!',
+            title: '@lang('auth.areyousure')',
+            text: '@lang('auth.premantalydelete')',
             icon: 'warning',
             buttons: true,
             dangerMode: true,
@@ -169,8 +174,8 @@
      $('.logout-confirm').on('click', function (event) {
         event.preventDefault();
         swal({
-            title: 'Are you sure?',
-            text: 'Logout',
+            title: '@lang('auth.areyousure')',
+            text: '@lang('auth.logout')',
             icon: 'warning',
             buttons: true,
             dangerMode: true,

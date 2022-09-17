@@ -22,7 +22,23 @@ class Destroy extends Controller
         $ru_post->delete();
         $uz_post->delete();
         $qqr_post->delete();
-        alert()->success('Success','Post successfully deleted')->persistent('Close')->autoclose(5500);
-        return redirect()->back(compact('locale'));
+
+        $messagealert = '';
+        switch ($locale) {
+            case 'en':
+                $messagealert = 'News successfully deleted';
+                break;
+            case 'ru':
+                $messagealert = 'Новости успешно удалены';
+                break;
+            case 'uz':
+                $messagealert = 'Yangilik muvaffaqiyatli oʻchirildi';
+                break;
+            case 'qqr':
+                $messagealert = 'Jańalıq tabıslı óshirildi';
+                break;
+        }
+        alert()->success('Success',$messagealert)->persistent('Close')->autoclose(5500);
+        return redirect()->back();
     }
 }

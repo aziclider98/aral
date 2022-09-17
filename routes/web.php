@@ -21,24 +21,21 @@ Auth::routes();
 
 // Admin
 
-    Route::group([ 'prefix' => '{locale}/admin', 'middleware' => ['role:admin']], function () {
+    Route::group([ 'prefix' => '{locale}/admin', 'middleware' => ['role:admin', 'setLocale']], function () {
         // Settings
-
         Route::get('/settings', [SettingsController::class, 'edit'])->name('editSettings');
         Route::post('/settings', [SettingsController::class, 'update'])->name('updateSettings');
         Route::put('/settings/admin/{id}', [SettingsController::class, 'nameEmailUpdate'])->name('infoupdate');
 
-        // CRUD posts
+        // CUD posts
         // C
-        Route::get('/create', [Create::class, 'create'])->name('createpost')->middleware('setLocale');
-        Route::post('/store', [Create::class, 'store'])->name('storepost')->middleware('setLocale');
+        Route::get('/create', [Create::class, 'create'])->name('createpost');
+        Route::post('/store', [Create::class, 'store'])->name('storepost');
         // E
-        Route::get('/edit/{id}', [Update::class, 'edit'])->name('editpost')->middleware('setLocale');
-        Route::put('/update/{id}', [Update::class, 'update'])->name('updatepost')->middleware('setLocale');
+        Route::get('/edit/{id}', [Update::class, 'edit'])->name('editpost');
+        Route::put('/update/{id}', [Update::class, 'update'])->name('updatepost');
         // D
-        Route::delete('/delete/{id}', [Destroy::class, 'destroy'])->name('destroy')->middleware('setLocale');
-
-        Route::resource('posts', PostController::class);
+        Route::delete('/delete/{id}', [Destroy::class, 'destroy'])->name('destroy');
 
         Route::prefix('post')->group( function(){
             //Search Post
@@ -52,20 +49,19 @@ Auth::routes();
             Route::get('/restore/all', [Restore::class, 'restoreAll'])->name('restore.all');
 
 
-            Route::get('/',[AdminNews::class, 'indexadmin'])->name('adminnews')->middleware('setLocale');
-            Route::get('/category/{id}',[AdminNews::class, 'indexadmincategory'])->name('indexadmincategory')->middleware('setLocale');
-            Route::get('/show/{id}',[AdminNews::class, 'indexadminshow'])->name('indexadminshow')->middleware('setLocale');
+            Route::get('/',[AdminNews::class, 'indexadmin'])->name('adminnews');
+            Route::get('/category/{id}',[AdminNews::class, 'indexadmincategory'])->name('indexadmincategory');
+            Route::get('/show/{id}',[AdminNews::class, 'indexadminshow'])->name('indexadminshow');
 
         });
     });
 // User
 
 
-Route::group(['prefix' => '{locale}'], function(){
-    Route::get('/', [News::class, 'index'])->name('news')->middleware('setLocale');
-    Route::get('/category/{id}', [News::class, 'indexcategory'])->name('newscategory')->middleware('setLocale');
-    Route::get('/news/{id}',[News::class, 'indexshow'])->name('indexshow')->middleware('setLocale');
-
+Route::group(['prefix' => '{locale}', 'middleware' => 'setLocale'], function(){
+    Route::get('/', [News::class, 'index'])->name('news');
+    Route::get('/category/{id}', [News::class, 'indexcategory'])->name('newscategory');
+    Route::get('/news/{id}',[News::class, 'indexshow'])->name('indexshow');
 });
 
 
