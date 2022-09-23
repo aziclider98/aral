@@ -29,7 +29,7 @@
 								<div class="eng-card-body">
 									<div class="form-group">
 										<label for="en_title">@lang('auth.newstitle')</label>
-										<input id="en_title" type="text" class="form-control @error('en_title') is-invalid @enderror" name="en_title" value="{{old('en_title')}}" autocomplete="off" placeholder="En title">
+										<input id="en_title" type="text" class="form-control @error('en_title') is-invalid @enderror" name="en_title" value="{{old('en_title')}}" autocomplete="off" >
 									</div>
 									@error('en_title')
 					                    <div class="text-danger" style="margin-top: -15px"> {{$message}}</div>
